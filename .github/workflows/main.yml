@@ -48,5 +48,5 @@ jobs:
               env:
                ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
               run: |
-               git remote add target https://github.com/LiteTrash/LCDeploy-Index.git
+               git remote add target https://imjinglan@github.com/LiteTrash/LCDeploy-Index.git
                git push target HEAD:refs/heads/main
