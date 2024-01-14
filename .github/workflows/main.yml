@@ -49,9 +49,10 @@ jobs:
                 git config user.email imjinglan@126.com
                 git commit -a -m "Add VERSION"
                 
-            - name: Push to another repository
+            - name: Deploy
+              uses: s0/git-publish-subdir-action@develop
               env:
-               ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-              run: |
-               git remote add target https://imjinglan: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@github.com/LiteTrash/LCDeploy-Index.git
-               git push target HEAD:refs/heads/main
+                REPO: self
+                BRANCH: Deploy
+                FOLDER: "./"
+                GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
