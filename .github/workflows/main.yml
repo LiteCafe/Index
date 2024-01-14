@@ -43,10 +43,15 @@ jobs:
             - name: 输出修改后的 HTML 文件列表
               run: |
                 cat html_files.txt # 输出修改后的 HTML 文件列表
+            - name: 设置Git Username
+              run: |
+                git config user.name ImJingLan
+                git config user.email imjinglan@126.com
+                git commit -a -m "Add VERSION"
                 
             - name: Push to another repository
               env:
                ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
               run: |
-               git remote add target https://imjinglan@github.com/LiteTrash/LCDeploy-Index.git
+               git remote add target https://imjinglan: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@github.com/LiteTrash/LCDeploy-Index.git
                git push target HEAD:refs/heads/main
