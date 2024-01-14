@@ -21,7 +21,7 @@
 
 .banner {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url("../../img/bg/banner.png");
+        url("../../img/bg/banner.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

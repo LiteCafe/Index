@@ -19,14 +19,6 @@
     padding-top: 6.5rem !important;
 }
 
-.banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url("../../img/bg/banner.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 .full-background {
     background-size: cover !important;
     background-position: center !important;
