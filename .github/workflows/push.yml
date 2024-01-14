@@ -51,4 +51,3 @@ jobs:
               with:
                   branch: Deploy # 部署后提交到的分支
                   folder: . # 打包好的目录名称
-                  commit-message: 从 $version 推送到 Deploy 分支
