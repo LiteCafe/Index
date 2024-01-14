@@ -1,8 +1,7 @@
-name: Push 2 Depoly Branch
+name: 同步至 Deploy 分支
 
-#Source: ZhuMeng & MTSMC
-
-#Mod :Yurik
+#BY：ZhuMeng
+#EDIT：Yurik
 
 on:
     push:
@@ -17,7 +16,6 @@ jobs:
         steps:
             # 获取源码
             - name: 迁出代码
-              # 使用action库  actions/checkout获取源码
               uses: actions/checkout@master
 
             - name: 获取提交版本号
@@ -44,9 +42,13 @@ jobs:
               run: |
                   cat html_files.txt # 输出修改后的 HTML 文件列表
 
-            - name: Deploy 🚀 # 部署
+            - name: 删除部署中的临时文件
+              run: |
+                  rm -f html_files.txt # 输出修改后的 HTML 文件列表
+
+            - name: 部署到 Deploy 分支 # 部署
               uses: JamesIves/github-pages-deploy-action@v4.3.3
               with:
                   branch: Deploy # 部署后提交到的分支
-                  folder: . # 这里填打包好的目录名称
+                  folder: . # 打包好的目录名称
 
