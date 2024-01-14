@@ -48,5 +48,5 @@ jobs:
               env:
                ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
               run: |
-               git remote set-url target https://imjinglan:${{ secrets.ACCESS_TOKEN }}@github.com/LiteCafe/Deploy-Index.git
+               git remote add target https://${{ secrets.ACCESS_TOKEN }}@github.com/LiteCafe/Deploy-Index.git
                git push target HEAD:refs/heads/main
