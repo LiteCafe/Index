@@ -6,4 +6,4 @@ Build With Netlify
 
 Design By BOOTSTRAP
 
-Copyright © 2023 Lite Cafe. All rights reserved.
+Copyright © 2022-2023 Lite Cafe. All rights reserved.
