@@ -23,6 +23,8 @@ jobs:
               run: |
                   version=$(git rev-parse --short HEAD)
                   echo "VERSION=$version" >> $GITHUB_ENV
+                  version=$(git rev-parse HEAD)
+                  echo "LONG_VERSION=$version" >> $GITHUB_ENV
                   echo "Latest commit version: $version"
 
             - name: 查询所有 HTML 文件
@@ -51,3 +53,4 @@ jobs:
               with:
                   branch: Deploy # 部署后提交到的分支
                   folder: . # 打包好的目录名称
+                  commit-message: 从 @ ${{ env.LONG_VERSION }} 推送到 Deploy 分支
