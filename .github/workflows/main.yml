@@ -29,30 +29,25 @@ jobs:
 
             - name: 查询所有 HTML 文件
               run: |
-                find . -type f -name "*.html" > html_files.txt
-                cat html_files.txt # 输出查找到的 HTML 文件列表
+                  find . -type f -name "*.html" > html_files.txt
+                  cat html_files.txt # 输出查找到的 HTML 文件列表
 
             - name: 更新 HTML 中的版本号
               run: |
-                version=${{ env.VERSION }}
-                while IFS= read -r file; do
-                  sed -i "s/{{VERSION}}/$version/g" "$file"
-                  echo "Updated version in $file"
-                done < html_files.txt
+                  version=${{ env.VERSION }}
+                  while IFS= read -r file; do
+                    sed -i "s/{{VERSION}}/$version/g" "$file"
+                    echo "Updated version in $file"
+                  done < html_files.txt
 
             - name: 输出修改后的 HTML 文件列表
               run: |
-                cat html_files.txt # 输出修改后的 HTML 文件列表
-            - name: 设置Git Username
-              run: |
-                git config user.name ImJingLan
-                git config user.email imjinglan@126.com
-                git commit -a -m "Add VERSION"
-                
+                  cat html_files.txt # 输出修改后的 HTML 文件列表
+
             - name: Deploy
               uses: s0/git-publish-subdir-action@develop
               env:
-                REPO: self
-                BRANCH: Deploy
-                FOLDER: "./"
-                GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                  REPO: self
+                  BRANCH: gh-pages
+                  FOLDER: public/site
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
