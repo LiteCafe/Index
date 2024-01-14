@@ -49,4 +49,4 @@ jobs:
                ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
               run: |
                git remote add target https://github.com/LiteCafe/Deploy-Index.git
-               git push target HEAD:refs/heads/Deploy
+               git push target HEAD:refs/heads/main
