@@ -1,349 +1,454 @@
-<!doctype html>
-<html lang="zh" data-bs-theme="auto">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <title>Lite Cafe | 扬帆泊云间 星辰尽展辉</title>
+        <meta
+            name="keywords"
+            content="Lite Cafe,LC服务器,Minecraft,我的世界服务器,我的世界"
+        />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <title>Lite Cafe | 扬帆泊云间 星辰尽展辉</title>
-
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="assets/css/index.css" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-    }
-  </style>
-
-
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top navbar-origin" id="navbar" data-bs-theme="dark">
-    <div class="container">
-      <a class="navbar-brand" href="#"><img src="./img/logo-nobg-white.png" id="nav-logo" alt="Logo" width="170" height="auto" class="d-inline-block align-text-top"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">主页</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="status">服务状态</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 text-success fw-bold" id="successModalLabel">复制成功</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="text-center text-success fw-bold display-1">
-            <i class="bi bi-check2-circle"></i>
-          </div>
-          <br>
-          服务器IP已成功，将其粘贴在游戏内的“服务器地址”处即可。如果连接服务器失败，请加上默认端口号25565后重试（<code>play.lite.cafe:25565</code>）。
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">了解</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="container-fluid py-5 text-center text-white banner" id="banner">
-    <div class="px-4 py-5 text-center caption-middle">
-      <div class="py-5">
-        <h1 class="display-5 fw-bold text-white">Lite Cafe 服务器</h1>
-        <div class="col-lg-6 mx-auto">
-          <p class="fs-5 mb-4">扬帆泊云间 星辰尽展辉</p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a href="#features" type="button" class="btn btn-outline-light btn-lg px-4">加入我们</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="container-fluid px-5 py-5" id="features" style="background-color: #f0fbff;">
-    <div class="container">
-      <h2 class="pb-2 border-bottom">关于我们</h2>
-      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-            <i class="bi bi-people-fill"></i>
-          </div>
-          <h3 class="fs-2 text-body-emphasis">属于玩家社区</h3>
-          <p>Lite Cafe 完全属于玩家社区，所有友善的的玩家都可参与服务器的管理。</p>
-        </div>
-
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-            <i class="bi bi-heart-fill"></i>
-          </div>
-          <h3 class="fs-2 text-body-emphasis">温馨氛围感</h3>
-          <p>我们倡议并领导玩家之间和睦相处，互相参与，互相帮助才是多人游戏的宗旨。</p>
-        </div>
-
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-            <i class="bi bi-tree-fill"></i>
-          </div>
-          <h3 class="fs-2 text-body-emphasis">香草生存体验</h3>
-          <p>我们只添加了Carpet地毯模组，你也可以选择不使用包含任何模组的客户端进入游戏</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="container-fluid my-5">
-    <div class="container">
-      <h4 class="mb-3">服务器IP</h4>
-      <div class="input-group input-group-lg">
-        <input id="server_ip" type="text" class="form-control" placeholder="play.lite.cafe" aria-label="play.lite.cafe" aria-describedby="button-addon2" value="play.lite.cafe" disabled>
-        <a class="btn btn-outline-success" type="button" onclick="copySuccess.show();" data-clipboard-text="play.lite.cafe" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="点击按钮以复制服务器IP" data-bs-toggle="modal" data-bs-target="#successModal">复制到剪贴板</a>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="container-fluid my-5">
-    <div class="container px-4 py-5" id="hanging-icons">
-      <div class="pb-2 border-bottom">
-        <h2 class="fw-bold">加入我们</h2>
-      </div>
-      <div class="row g-4 py-5 row-cols-md-2 row-cols-1 row-cols-lg-4">
-        <div class="col d-flex align-items-start">
-          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-            <i class="bi bi-1-circle"></i>
-          </div>
-          <div>
-            <h3 class="fs-2 text-body-emphasis">必备材料</h3>
-            <p>您需要准备一个Minecraft:Java Edition 国际版正版账号。</p>
-
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-            <i class="bi bi-2-circle"></i>
-          </div>
-          <div>
-            <h3 class="fs-2 text-body-emphasis">填写问卷</h3>
-            <p>我们需要对您的信息进行采集与审核，您需要配合填写相应问卷。</p>
-
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-            <i class="bi bi-3-circle"></i>
-          </div>
-          <div>
-            <h3 class="fs-2 text-body-emphasis">稍安勿躁</h3>
-            <p>我们会尽快处理您的申请信息，稍安勿躁，马上就好。</p>
-
-          </div>
-        </div>
-
-        <div class="col d-flex align-items-start">
-          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-            <i class="bi bi-3-circle"></i>
-          </div>
-          <div>
-            <h3 class="fs-2 text-body-emphasis">加入游戏</h3>
-            <p>当您的ID进入白名单后您就可以复制上方的IP地址进入游戏了，Enjoy :)</p>
-
-          </div>
-        </div>
-        <!--
-        <div class="text-center mx-auto mt-5">
-          <a href="https://docs.qq.com/form/page/DWUh5cmphZk1ad2dp" class="btn btn-primary"><i class="bi bi-send"></i>申请问卷</a>&ensp;
-          <a class="icon-link icon-link-hover link-secondary" href="#check">
-            查看是否为白名单<i class="bi bi-chevron-right"></i>
-          </a>
-        </div>-->
-
-      </div>
-    </div>
-  </div>
-  <!--
-  <div class="container-fluid my-5" id="check">
-    <div class="container">
-      <h4 class="mb-3">白名单检测</h4>
-      <div class="input-group input-group-lg">
-        <span class="input-group-text" id="inputGroupPrepend">
-          <i class="bi bi-person-circle mx-0"></i>
-        </span><input id="username" type="text" class="form-control" placeholder="游戏 ID" aria-label="游戏 ID" aria-describedby="button-addon2">
-        <a class="btn btn-outline-primary" type="button" onclick="checkUsername()">查询</a>
-      </div>
-
-    </div>
-  </div>-->
-
-  <footer class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 mt-5 border-top">
-      <div class="col mb-3">
-        <a href="" class="d-flex align-items-center mb-3 text-decoration-none">
-          <img class="img-fluid footer-logo" src="img\logo-nobg-black.png" alt="">
-        </a>
-        <h5 class="text-center">扬帆泊云间 星辰尽展辉</h5>
-      </div>
-
-      <div class="col mb-3"></div>
-
-      <div class="col-6 col-md">
-        <h5>站点地图</h5>
-        <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="./">主站</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/status/">服务器状态</a></li>
-        </ul>
-      </div>
-
-      <div class="col-6 col-md">
-        <h5>社交媒体</h5>
-        <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/LiteCafe">Github</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="text-center pb-5 text-body-secondary">
-      <small>
-        Copyright © 2023 Lite Cafe. All rights reserved.
-      </small>
-    </div>
-  </footer>
-
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="errorToast" class="toast bg-blur" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-      <div class="toast-header text-bg-danger">
-        <i class="bi bi-mr bi-bug-fill"></i>&ensp;
-        <strong class="me-auto">服务器已离线</strong>
-        <small>现在</small>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        <p class="my-0">
-          服务器已离线，这可能是计划内的停机，也有可能我们遭遇了一些小问题。
-          <br><strong>如果你怀疑服务器宕机，请立即上报运维。</strong>
-        </p>
-        <div class="mt-2">
-          <a target="_blank" class="btn btn-sm btn-outline-danger " href="/status">
-            <i class="bi bi-box-arrow-up-right"></i>问题上报</a>
-          <a target="_blank" class="icon-link icon-link-hover link-secondary mx-2" href="/status">
-            查看状态页
-            <i class="bi bi-chevron-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div id="VIToast" class="toast bg-blur" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-      <div class="toast-header text-bg-success">
-        <i class="bi bi-file-text-fill"></i>&ensp;
-        <strong class="me-auto">Logo & VI 使用手册已上线</strong>
-        <small>现在</small>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        <p class="my-0">
-          为迎接Lite Cafe 服务器第一周目开服，我们为其制作了全新的 Logo 和 VI 手册。
-          <br><strong>该LOGO版权归Lite Cafe运营团队所有，未经许可不得用于商业用途</strong>
-        </p>
-        <div class="mt-2">
-          <a target="_blank" class="btn btn-sm btn-outline-primary " href="assets\documents\VIGuideBook.pdf">
-            <i class="bi bi-file-earmark-pdf-fill"></i>&ensp;阅读手册</a>
-          <a target="_blank" class="icon-link icon-link-hover link-secondary mx-2" href="https://www.zcool.com.cn/work/ZNjc0Mjk2MDQ=.html">
-            站酷展示页
-            <i class="bi bi-chevron-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <script src="./assets/js/bootstrap.bundle.min.js"></script>
-  <script src="./assets/js/style.js"></script>
-  <script src="./assets/js/clipboard.min.js"></script>
-
-  <script>
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-
-    var clipboard = new ClipboardJS('.btn');
-
-    let copySuccess = new bootstrap.Modal(document.getElementById('successModal'));
-
-    const errorToast = bootstrap.Toast.getOrCreateInstance(document.getElementById('errorToast'))
-
-    const VIToast = bootstrap.Toast.getOrCreateInstance(document.getElementById('VIToast'))
-
-    var errorShow = false;
-
-    VIToast.show();
-
-    function copyServerIp() {
-      const inputElement = document.querySelector('#server_ip');
-      inputElement.select();
-      document.execCommand('copy');
-      console.log("已复制到剪贴板");
-    }
-
-    function getPing() {
-      console.log(new Date);
-      let status = document.getElementById("status");
-      let version = document.getElementById("version");
-
-      let online_players = document.getElementById("online_players");
-      let max_players = document.getElementById("max_players");
-      let player_list = document.getElementById("player_list");
-      var playerList = '';
-
-      fetch('https://api.lite.cafe/api/getPing')
-        .then(response => response.json())
-        .then(data => {
-          if (data.code == 1 || data.data == false) {
-            if (!errorShow) {
-              errorToast.show();
-              errorShow = true;
-            } else {
-
+        <meta
+            name="description"
+            content="Lite Cafe，一个完全属于玩家的原版生存服务器，我们希望给所有玩家一个香草般的生存体验，打造自己的家园"
+        />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="assets/css/index.css" rel="stylesheet" />
+        <script src="assets/js/color-modes.js"></script>
+        <style>
+            #back-to-top {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                transition: opacity 0.3s ease-out;
             }
-          } else {
 
-            errorToast.hide();
-            errorShow = false;
+            #back-to-top:hover {
+                opacity: 1;
+            }
 
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching JSON:', error);
-          errorToast.show();
-        });
-    }
-    window.onload = () => {
-      getPing();
-    }
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
 
-    function checkUsername() {
-      let username = document.getElementById("username").value;
-      console.log(username);
-    }
-  </script>
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
 
-</body>
+            .b-example-divider {
+                width: 100%;
+                height: 3rem;
+                background-color: rgba(0, 0, 0, 0.1);
+                border: solid rgba(0, 0, 0, 0.15);
+                border-width: 1px 0;
+                box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+                    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+            }
 
+            .b-example-vr {
+                flex-shrink: 0;
+                width: 1.5rem;
+                height: 100vh;
+            }
+
+            .bi {
+                vertical-align: -0.125em;
+                fill: currentColor;
+            }
+
+            .nav-scroller {
+                position: relative;
+                z-index: 2;
+                height: 2.75rem;
+                overflow-y: hidden;
+            }
+
+            .nav-scroller .nav {
+                display: flex;
+                flex-wrap: nowrap;
+                padding-bottom: 1rem;
+                margin-top: -1px;
+                overflow-x: auto;
+                text-align: center;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .btn-bd-primary {
+                --bd-violet-bg: #712cf9;
+                --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+                --bs-btn-font-weight: 600;
+                --bs-btn-color: var(--bs-white);
+                --bs-btn-bg: var(--bd-violet-bg);
+                --bs-btn-border-color: var(--bd-violet-bg);
+                --bs-btn-hover-color: var(--bs-white);
+                --bs-btn-hover-bg: #6528e0;
+                --bs-btn-hover-border-color: #6528e0;
+                --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+                --bs-btn-active-color: var(--bs-btn-hover-color);
+                --bs-btn-active-bg: #5a23c8;
+                --bs-btn-active-border-color: #5a23c8;
+            }
+
+            .bd-mode-toggle {
+                z-index: 1500;
+            }
+
+            .bd-mode-toggle .dropdown-menu .active .bi {
+                display: block !important;
+            }
+        </style>
+    </head>
+    <body>
+        <nav
+            class="navbar navbar-expand-lg bg-body-tertiary fixed-top navbar-origin"
+            id="navbar"
+            data-bs-theme="white"
+        >
+            <div class="container">
+                <a class="navbar-brand" href="#"
+                    ><img
+                        src="/img/logo-nobg-black.png"
+                        id="nav-logo"
+                        alt="Logo"
+                        width="170"
+                        height="auto"
+                        class="d-inline-block align-text-top"
+                /></a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="./"
+                                >主页</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                aria-current="page"
+                                href="status"
+                                >服务状态</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="container py-4 mt-5">
+                <div
+                    class="p-5 mb-4 bg-body-tertiary rounded-3 full-background"
+                    style="
+                        background: linear-gradient(
+                                rgba(0, 0, 0, 0.2),
+                                rgba(0, 0, 0, 0.2)
+                            ),
+                            url('img/bg/banner.png');
+                    "
+                >
+                    <div class="container-fluid py-5 text-white">
+                        <h1 class="display-5 fw-bold">Lite Cafe 服务器</h1>
+                        <p class="col-md-8 fs-4">扬帆泊云间 星辰尽展辉</p>
+                        <button
+                            class="btn btn-outline-light btn-lg"
+                            type="button"
+                        >
+                            加入我们
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-7 mb-4">
+                        <div
+                            class="h-100 p-5 rounded-3 full-background"
+                            style="
+                                background: linear-gradient(
+                                        90deg,
+                                        rgba(255, 255, 255, 1) 30%,
+                                        rgba(255, 255, 255, 0) 100%
+                                    ),
+                                    url('img/bg/ygg-bg.webp');
+                            "
+                        >
+                            <h2>世界树认证</h2>
+                            <p>
+                                我们使用自己搭建的Yggdrasill服务器，让大陆地区玩家更加容易进行身份认证。
+                                <br />这个通行证是现阶段必备的，你最好注册他。<br />在解决所有玩家的登录认证问题后我们将会转换至正版验证
+                            </p>
+                            <a
+                                class="btn btn-outline-secondary"
+                                href="//yggdrasill.lite.cafe"
+                                target="_blank"
+                            >
+                                LC Yggdrasill
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 mb-4">
+                        <div
+                            class="h-100 p-5 bg-body-tertiary rounded-3 full-background"
+                            style="
+                                background-position: left !important;
+                                background: linear-gradient(
+                                        90deg,
+                                        rgba(255, 255, 255, 1) 30%,
+                                        rgba(255, 255, 255, 0) 100%
+                                    ),
+                                    url('img/bg/status.webp');
+                            "
+                        >
+                            <h2>服务状态</h2>
+                            <p>
+                                当前状态：<span id="status">Loading...</span
+                                ><br />
+                                当前版本：<span id="version">Loading...</span
+                                ><br />
+                                当前人数：<span id="online_players">0</span> /
+                                <span id="max_players">0</span><br />
+                            </p>
+                            <a
+                                class="btn btn-outline-secondary"
+                                href="./status"
+                            >
+                                服务状态
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="container pt-3 mt-4">
+                    <div
+                        class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 mt-5 border-top"
+                    >
+                        <div class="col mb-3">
+                            <a
+                                href=""
+                                class="d-flex align-items-center mb-3 text-decoration-none"
+                            >
+                                <img
+                                    class="img-fluid footer-logo"
+                                    src="img\logo-nobg-black.png"
+                                    alt=""
+                                />
+                            </a>
+                            <h5 class="text-center">扬帆泊云间 星辰尽展辉</h5>
+                        </div>
+
+                        <div class="col mb-3"></div>
+
+                        <div class="col-6 col-md">
+                            <h5>快速访问</h5>
+                            <ul class="list-unstyled text-small">
+                                <li class="mb-1">
+                                    <a
+                                        class="link-secondary text-decoration-none"
+                                        href="./"
+                                        >主页</a
+                                    >
+                                </li>
+                                <li class="mb-1">
+                                    <a
+                                        class="link-secondary text-decoration-none"
+                                        href="/status/"
+                                        >服务状态</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="text-center pb-5 text-body-secondary">
+                        <small>
+                            Copyright © 2023 Lite Cafe. All rights reserved.
+                        </small>
+                    </div>
+                </footer>
+            </div>
+        </main>
+
+        <div id="back-to-top">
+            <a
+                class="btn btn-primary fw-bold"
+                onclick="document.body.scrollTop = document.documentElement.scrollTop = 0;"
+                ><i class="bi bi-arrow-up"></i
+            ></a>
+        </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div
+                id="errorToast"
+                class="toast bg-blur"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+                data-bs-autohide="false"
+            >
+                <div class="toast-header text-bg-danger">
+                    <i class="bi bi-mr bi-bug-fill"></i>&ensp;
+                    <strong class="me-auto">服务器已离线</strong>
+                    <small>现在</small>
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="toast"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="toast-body">
+                    <p class="my-0">
+                        服务器已离线，这可能是计划内的停机，也有可能我们遭遇了一些小问题。
+                        <br /><strong
+                            >如果你怀疑服务器宕机，请立即上报运维。</strong
+                        >
+                    </p>
+                    <div class="mt-2">
+                        <a
+                            target="_blank"
+                            class="btn btn-sm btn-outline-danger"
+                            href="/status"
+                        >
+                            <i class="bi bi-box-arrow-up-right"></i>问题上报</a
+                        >
+                        <a
+                            target="_blank"
+                            class="icon-link icon-link-hover link-secondary mx-2"
+                            href="/status"
+                        >
+                            查看状态页
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                id="VIToast"
+                class="toast bg-blur"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+                data-bs-autohide="false"
+            >
+                <div class="toast-header text-bg-success">
+                    <i class="bi bi-file-text-fill"></i>&ensp;
+                    <strong class="me-auto">Logo & VI 使用手册已上线</strong>
+                    <small>现在</small>
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="toast"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="toast-body">
+                    <p class="my-0">
+                        为迎接Lite Cafe 服务器第一周目开服，我们为其制作了全新的
+                        Logo 和 VI 手册。
+                        <br /><strong
+                            >该LOGO版权归Lite
+                            Cafe运营团队所有，未经许可不得用于商业用途</strong
+                        >
+                    </p>
+                    <div class="mt-2">
+                        <a
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            href="assets\documents\VIGuideBook.pdf"
+                        >
+                            <i class="bi bi-file-earmark-pdf-fill"></i
+                            >&ensp;阅读手册</a
+                        >
+                        <a
+                            target="_blank"
+                            class="icon-link icon-link-hover link-secondary mx-2"
+                            href="https://www.zcool.com.cn/work/ZNjc0Mjk2MDQ=.html"
+                        >
+                            站酷展示页
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/index.js"></script>
+
+        <script>
+            function getPing() {
+                let status = document.getElementById("status");
+                let version = document.getElementById("version");
+
+                let online_players = document.getElementById("online_players");
+                let max_players = document.getElementById("max_players");
+                let player_list = document.getElementById("player_list");
+                var playerList = "";
+
+                fetch("https://api.lite.cafe/api/getPing")
+                    .then((response) => response.json()) // 将响应解析为 JSON
+                    .then((data) => {
+                        //console.log(data);
+                        if (data.code == 1 || data.data == false) {
+                            status.innerText = "离线";
+                            status.style.color = "#f03752";
+                            version.innerText = "null";
+                            online_players.innerText = 0;
+                            max_players.innerText = 0;
+                        } else {
+                            data = data.data;
+                            status.innerText = "在线";
+                            status.style.color = "#20894d";
+                            version.innerText = data.version.name;
+                            online_players.innerText = data.players.online;
+                            max_players.innerText = data.players.max;
+                            if (data.players.online > 0) {
+                                for (var i = 0; i < data.players.online; i++) {
+                                    playerList =
+                                        playerList +
+                                        "<li>" +
+                                        data.players.sample[i].name +
+                                        "</li>";
+                                }
+                                player_list.innerHTML = playerList;
+                            }
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching JSON:", error);
+                        errorToast.show();
+                        status.innerText = "unknown";
+                        people.innerText = "null";
+                        gameVersion.innerText = "null";
+                        displayPingInfo();
+                    });
+            }
+            getPing();
+        </script>
+    </body>
 </html>

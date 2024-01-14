@@ -1,162 +1,246 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh" data-bs-theme="auto">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <title>服务状态 | Lite Cafe</title>
+        <meta
+            name="keywords"
+            content="Lite Cafe,LC服务器,Minecraft,我的世界服务器,我的世界"
+        />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <title>服务状态 | Lite Cafe</title>
+        <meta
+            name="description"
+            content="Lite Cafe，一个完全属于玩家的原版生存服务器，我们希望给所有玩家一个香草般的生存体验，打造自己的家园"
+        />
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../assets/css/bootstrap-icons.min.css" rel="stylesheet" />
+        <link href="../assets/css/status.css" rel="stylesheet" />
 
-
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/css/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="../assets/css/status.css" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-    }
-  </style>
-
-
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top navbar-origin" id="navbar" data-bs-theme="dark">
-    <div class="container">
-      <a class="navbar-brand" href="#"><img src="/img/logo-nobg-white.png" id="nav-logo" alt="Logo" width="170" height="auto" class="d-inline-block align-text-top"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="../">主页</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./">服务状态</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <section class="container-fluid px-0">
-    <div class="banner w-100 d-flex align-items-center">
-      <h1 class="mx-auto text-center text-white fw-bold">服务状态</h1>
-    </div>
-
-    <div class="container">
-      <div class="card shadow-lg px-5 py-4 card-move-top">
-        <h2 class="fw-bold py-1">服务器信息</h2>
-        <h3 class="fw-bold py-2">当前状态：<span id="status">Loading...</span></h3>
-        <h3 class="fw-bold py-2">当前版本：<span id="version">Loading...</span></h3>
-        <h3 class="fw-bold py-2">当前人数：<span id="online_players">0</span> / <span id="max_players">0</span></h3>
-        <h3 class="fw-bold py-2">玩家列表：</h3>
-        <div id="player_list"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-fluid px-0">
-
-    <div class="container">
-      <div class="card shadow-lg px-5 py-4">
-        <h2 class="fw-bold py-1">维护时间表</h2>
-        <h3 class="fw-bold py-2">无</h3>
-      </div>
-    </div>
-  </section>
-
-
-
-  <footer class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 mt-5 border-top">
-      <div class="col mb-3">
-        <a href="/" class="d-flex align-items-center mb-3 text-decoration-none">
-          <img class="img-fluid footer-logo" src="../img\logo-nobg-black.png" alt="">
-        </a>
-        <h5 class="text-center">扬帆探未知 星辰尽展辉</h5>
-      </div>
-
-      <div class="col mb-3"></div>
-
-      <div class="col-6 col-md">
-        <h5>站点地图</h5>
-        <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="./">主站</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/status/">服务器状态</a></li>
-        </ul>
-      </div>
-
-      <div class="col-6 col-md">
-        <h5>社交媒体</h5>
-        <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/LiteCafe">Github</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="text-center pb-5 text-body-secondary">
-      <small>
-        Copyright © 2023 Lite Cafe. All rights reserved.
-      </small>
-    </div>
-  </footer>
-
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/style.js"></script>
-  <script>
-    function getPing() {
-      let status = document.getElementById("status");
-      let version = document.getElementById("version");
-
-      let online_players = document.getElementById("online_players");
-      let max_players = document.getElementById("max_players");
-      let player_list = document.getElementById("player_list");
-      var playerList = '';
-
-      fetch('https://api.lite.cafe/api/getPing')
-        .then(response => response.json()) // 将响应解析为 JSON
-        .then(data => {
-          //console.log(data);
-          if (data.code == 1 || data.data == false) {
-            status.innerText = "离线";
-            status.style.color = "#f03752"
-            version.innerText = "null";
-            online_players.innerText = 0;
-            max_players.innerText = 0;
-          } else {
-            data = data.data;
-            status.innerText = "在线";
-            status.style.color = "#20894d"
-            version.innerText = data.version.name;
-            online_players.innerText = data.players.online;
-            max_players.innerText = data.players.max;
-            if (data.players.online > 0) {
-              for (var i = 0; i < data.players.online; i++) {
-                playerList = playerList + "<li>" + data.players.sample[i].name + "</li>";
-              }
-              player_list.innerHTML = playerList;
+        <style>
+            body {
+                margin: 0;
             }
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching JSON:', error);
-          errorToast.show()
-          status.innerText = "unknown";
-          people.innerText = "null";
-          gameVersion.innerText = "null";
-          displayPingInfo();
-        });
-    }
-    getPing();
-    setInterval(getPing(), 10000);
-  </script>
 
+            #back-to-top {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                transition: opacity 0.3s ease-out;
+            }
 
+            #back-to-top:hover {
+                opacity: 1;
+            }
+        </style>
+    </head>
 
-</body>
+    <body>
+        <nav
+            class="navbar navbar-expand-lg bg-body-tertiary fixed-top navbar-origin"
+            id="navbar"
+            data-bs-theme="dark"
+        >
+            <div class="container">
+                <a class="navbar-brand" href="#"
+                    ><img
+                        src="/img/logo-nobg-white.png"
+                        id="nav-logo"
+                        alt="Logo"
+                        width="170"
+                        height="auto"
+                        class="d-inline-block align-text-top"
+                /></a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../"
+                                >主页</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="./"
+                                >服务状态</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
+        <section class="container-fluid px-0">
+            <div class="banner w-100 d-flex align-items-center">
+                <h1 class="mx-auto text-center text-white fw-bold">服务状态</h1>
+            </div>
+
+            <div class="container">
+                <div class="card shadow-lg px-5 py-4 card-move-top">
+                    <h2 class="fw-bold py-1">服务器信息</h2>
+                    <h3 class="fw-bold py-2">
+                        当前状态：<span id="status">Loading...</span>
+                    </h3>
+                    <h3 class="fw-bold py-2">
+                        当前版本：<span id="version">Loading...</span>
+                    </h3>
+                    <h3 class="fw-bold py-2">
+                        当前人数：<span id="online_players">0</span> /
+                        <span id="max_players">0</span>
+                    </h3>
+                    <h3 class="fw-bold py-2">玩家列表：</h3>
+                    <div id="player_list"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid px-0">
+            <div class="container">
+                <div class="card shadow-lg px-5 py-4">
+                    <h2 class="fw-bold py-1">维护时间表</h2>
+                    <h3 class="fw-bold py-2">无</h3>
+                </div>
+            </div>
+        </section>
+
+        <footer class="container pt-3 mt-4">
+            <div
+                class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 mt-5 border-top"
+            >
+                <div class="col mb-3">
+                    <a
+                        href=""
+                        class="d-flex align-items-center mb-3 text-decoration-none"
+                    >
+                        <img
+                            class="img-fluid footer-logo"
+                            src="../img/logo-nobg-black.png"
+                            alt=""
+                        />
+                    </a>
+                    <h5 class="text-center">扬帆泊云间 星辰尽展辉</h5>
+                </div>
+
+                <div class="col mb-3"></div>
+
+                <div class="col-6 col-md">
+                    <h5>快速访问</h5>
+                    <ul class="list-unstyled text-small">
+                        <li class="mb-1">
+                            <a
+                                class="link-secondary text-decoration-none"
+                                href="./"
+                                >主页</a
+                            >
+                        </li>
+                        <li class="mb-1">
+                            <a
+                                class="link-secondary text-decoration-none"
+                                href="/status/"
+                                >服务状态</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center pb-5 text-body-secondary">
+                <small>
+                    Copyright © 2023 Lite Cafe. All rights reserved.
+                </small>
+            </div>
+        </footer>
+
+        <div id="back-to-top">
+            <a
+                class="btn btn-primary fw-bold"
+                onclick="document.body.scrollTop = document.documentElement.scrollTop = 0;"
+                ><i class="bi bi-arrow-up"></i
+            ></a>
+        </div>
+
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/style.js"></script>
+        <script>
+            function getPing() {
+                let status = document.getElementById("status");
+                let version = document.getElementById("version");
+
+                let online_players = document.getElementById("online_players");
+                let max_players = document.getElementById("max_players");
+                let player_list = document.getElementById("player_list");
+                var playerList = "";
+
+                fetch("https://api.lite.cafe/api/getPing")
+                    .then((response) => response.json()) // 将响应解析为 JSON
+                    .then((data) => {
+                        //console.log(data);
+                        if (data.code == 1 || data.data == false) {
+                            status.innerText = "离线";
+                            status.style.color = "#f03752";
+                            version.innerText = "null";
+                            online_players.innerText = 0;
+                            max_players.innerText = 0;
+                        } else {
+                            data = data.data;
+                            status.innerText = "在线";
+                            status.style.color = "#20894d";
+                            version.innerText = data.version.name;
+                            online_players.innerText = data.players.online;
+                            max_players.innerText = data.players.max;
+                            if (data.players.online > 0) {
+                                for (var i = 0; i < data.players.online; i++) {
+                                    playerList =
+                                        playerList +
+                                        "<li>" +
+                                        data.players.sample[i].name +
+                                        "</li>";
+                                }
+                                player_list.innerHTML = playerList;
+                            }
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching JSON:", error);
+                        errorToast.show();
+                        status.innerText = "unknown";
+                        people.innerText = "null";
+                        gameVersion.innerText = "null";
+                        displayPingInfo();
+                    });
+            }
+            getPing();
+            setInterval(getPing(), 10000);
+        </script>
+
+        <script>
+            btt_span = document.getElementById("back-to-top");
+
+            if (window.scrollY > 0) {
+                btt_span.style.opacity = "1";
+            } else {
+                btt_span.style.opacity = "0";
+            }
+            addEventListener("scroll", () => {
+                if (window.scrollY > 0) {
+                    btt_span.style.opacity = "1";
+                } else {
+                    btt_span.style.opacity = "0";
+                }
+            });
+        </script>
+    </body>
 </html>
