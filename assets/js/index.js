@@ -1,8 +1,11 @@
 const VIToast = bootstrap.Toast.getOrCreateInstance(
     document.getElementById("VIToast")
 );
-
-VIToast.show();
+const MaintainToast = bootstrap.Toast.getOrCreateInstance(
+    document.getElementById("maintainToast")
+);
+//VIToast.show();
+MaintainToast.show();
 
 function getPing() {
     console.log(new Date());
