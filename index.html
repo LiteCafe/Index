@@ -354,6 +354,42 @@
             </div>
 
             <div
+                id="maintainToast"
+                class="toast bg-blur"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+                data-bs-autohide="false"
+            >
+                <div class="toast-header text-bg-info text-white">
+                    <strong class="me-auto">服务器正在计划内维护</strong>
+                    <small>2401181550</small>
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="toast"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="toast-body">
+                    <p class="my-0">
+                        服务器无法访问？因为我们正在进行计划内的维护。
+                        <br /><strong>访问『服务状态』页面查看具体信息</strong>
+                    </p>
+                    <div class="mt-2">
+                        <a
+                            target="_blank"
+                            class="btn btn-sm btn-outline-info"
+                            href="/status"
+                        >
+                            <i class="bi bi-box-arrow-up-right"></i
+                            >『服务状态』</a
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div
                 id="VIToast"
                 class="toast bg-blur"
                 role="alert"
