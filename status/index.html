@@ -92,9 +92,11 @@
                 <div class="card shadow-lg px-5 py-4 card-move-top">
                     <h2 class="fw-bold py-1">服务器信息</h2>
                     <h3 class="fw-bold py-2">
-                        当前状态：<span id="status">Loading...</span>
+                        当前状态：<span id="status" class="text-danger"
+                            >Offline</span
+                        >
                     </h3>
-                    <h3 class="fw-bold py-2">
+                    <!--<h3 class="fw-bold py-2">
                         当前版本：<span id="version">Loading...</span>
                     </h3>
                     <h3 class="fw-bold py-2">
@@ -102,7 +104,7 @@
                         <span id="max_players">0</span>
                     </h3>
                     <h3 class="fw-bold py-2">玩家列表：</h3>
-                    <div id="player_list"></div>
+                    <div id="player_list"></div>-->
                 </div>
             </div>
         </section>
@@ -111,26 +113,23 @@
             <div class="container">
                 <div class="card shadow-lg px-5 py-4">
                     <h2 class="fw-bold py-1">
-                        <span class="badge rounded-pill text-bg-warning"
+                        <span class="badge rounded-pill text-bg-danger"
                             >In Process</span
                         >
-                        计划内维护 - 系统
+                        计划外维护
                     </h2>
                     <h4 class="py-1">案件号:2401181550</h4>
                     <h3 class="fw-bold py-1">
                         <span class="fw-normal fs-5">详情: </span>
                         <br />
                         <span class="fw-normal fs-6"
-                            >我们正在将主服务器系统从 CentOS 7 迁移至 Debian 12,
-                            以获取最新的软件与特性。</span
+                            >由于不可抗力，Lite Cafe 游戏服务器将长期关闭</span
                         >
                     </h3>
                     <h3 class="fw-bold py-1">
                         <span class="fw-normal fs-5"
                             >预计恢复时间:
-                            <span class="fw-bold text-success"
-                                ><~24H</span
-                            ></span
+                            <span class="fw-bold text-danger">∞</span></span
                         >
                         <br />
                         <span class="fw-normal fs-6"
@@ -186,7 +185,7 @@
                 <small>
                     Copyright © 2022-2023 Lite Cafe. All rights reserved. </small
                 ><br />
-                <i class="bi bi-git"></i>Version: 7fbb07e
+                <i class="bi bi-git"></i>Version: 533cc8a
             </div>
         </footer>
 
@@ -200,6 +199,7 @@
 
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/js/style.js?v=1.1"></script>
+        <!--
         <script>
             function getPing() {
                 let status = document.getElementById("status");
@@ -250,7 +250,7 @@
             }
             getPing();
             setInterval(getPing(), 10000);
-        </script>
+        </script>-->
 
         <script>
             btt_span = document.getElementById("back-to-top");

@@ -202,13 +202,12 @@
                             <h2>世界树认证</h2>
                             <p>
                                 我们使用自己搭建的Yggdrasill服务器，让大陆地区玩家更加容易进行身份认证。
-                                <br />这个通行证是现阶段必备的，你最好注册他。<br />在解决所有玩家的登录认证问题后我们将会转换至正版验证
+                                <br />这个通行证是现阶段必备的，你最好注册他。<br />在解决所有玩家的登录认证问题后我们将会转换至正版验证<br /><span
+                                    class="text-danger"
+                                    >当前服务已关闭</span
+                                >
                             </p>
-                            <a
-                                class="btn btn-outline-secondary"
-                                href="//yggdrasill.lite.cafe"
-                                target="_blank"
-                            >
+                            <a class="btn btn-outline-secondary" href="">
                                 LC Yggdrasill
                             </a>
                         </div>
@@ -229,10 +228,12 @@
                         >
                             <h2>服务状态</h2>
                             <p>
-                                当前状态：<span id="status">Loading...</span
+                                当前状态：<span id="status"
+                                    ><span class="text-danger"
+                                        >Offline</span
+                                    ></span
                                 ><br />
-                                当前版本：<span id="version">Loading...</span
-                                ><br />
+                                当前版本：<span id="version">null</span><br />
                                 当前人数：<span id="online_players">0</span> /
                                 <span id="max_players">0</span><br />
                             </p>
@@ -292,7 +293,7 @@
                             Copyright © 2022-2023 Lite Cafe. All rights
                             reserved. </small
                         ><br />
-                        <i class="bi bi-git"></i>Version: 7fbb07e
+                        <i class="bi bi-git"></i>Version: 533cc8a
                     </div>
                 </footer>
             </div>
@@ -361,8 +362,8 @@
                 aria-atomic="true"
                 data-bs-autohide="false"
             >
-                <div class="toast-header text-bg-info text-white">
-                    <strong class="me-auto">服务器正在计划内维护</strong>
+                <div class="toast-header text-bg-danger text-white">
+                    <strong class="me-auto">服务器出现了计划外错误</strong>
                     <small>2401181550</small>
                     <button
                         type="button"
@@ -373,13 +374,13 @@
                 </div>
                 <div class="toast-body">
                     <p class="my-0">
-                        服务器无法访问？因为我们正在进行计划内的维护。
+                        服务器出现了计划外错误。
                         <br /><strong>访问『服务状态』页面查看具体信息</strong>
                     </p>
                     <div class="mt-2">
                         <a
                             target="_blank"
-                            class="btn btn-sm btn-outline-info"
+                            class="btn btn-sm btn-outline-danger"
                             href="/status"
                         >
                             <i class="bi bi-box-arrow-up-right"></i
@@ -441,7 +442,7 @@
 
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/index.js?v=1.1"></script>
-
+        <!--
         <script>
             function getPing() {
                 let status = document.getElementById("status");
@@ -491,6 +492,6 @@
                     });
             }
             getPing();
-        </script>
+        </script>-->
     </body>
 </html>
